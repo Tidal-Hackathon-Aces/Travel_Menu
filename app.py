@@ -5,11 +5,14 @@ from flask import Flask, request, render_template, redirect, url_for
 import openai
 import json
 import random
+import ollama
+
+use_local_llm = False 
 
 app = Flask(__name__)
 
 # 设置OpenAI的API密钥
-openai.api_key = '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'
+openai.api_key = '<ChatGPT-API-key-here>'
 
 # 路由：显示上传图片的页面
 @app.route('/')
@@ -37,15 +40,29 @@ def upload_image():
     
     print(file.filename)
 
-    # 调用OpenAI API生成菜品的描述信息
-    response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo-0125",
-    messages=[
-        {"role": "user", "content": f"Analyze this menu text and extract dish names, ingredients, prices, and any special notes such as allergens. Return the results in JSON format as an array of objects like this: [{{\"name\": \"Dish Name\", \"ingredients\": \"Ingredients\", \"price\": \"Price\", \"notes\": \"Notes\"}}]. Menu Text: {ocr_text}"}
-    ],
-    max_tokens=500,
-    temperature=0
-    )
+    if use_local_llm:
+        print("log: using local llama")
+
+        response = ollama.chat(model='llama3.2', messages=[
+            {
+                "role": "user", "content": f"Analyze this menu text and extract dish names, ingredients, prices, and any special notes such as allergens. Return the results in JSON format as an array of objects like this: [{{\"name\": \"Dish Name\", \"ingredients\": \"Ingredients\", \"price\": \"Price\", \"notes\": \"Notes\"}}]. Menu Text: {ocr_text}"
+            },
+            ])
+
+    else:
+        print("log: using OpenAI API")
+
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo-0125",
+            messages=[
+                {
+                    "role": "user", "content": f"Analyze this menu text and extract dish names, ingredients, prices, and any special notes such as allergens. Return the results in JSON format as an array of objects like this: [{{\"name\": \"Dish Name\", \"ingredients\": \"Ingredients\", \"price\": \"Price\", \"notes\": \"Notes\"}}]. Menu Text: {ocr_text}"
+                }
+            ],
+            max_tokens=500,
+            temperature=0
+        )
+
     print("---")
     print(response)
 
