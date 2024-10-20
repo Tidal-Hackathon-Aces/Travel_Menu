@@ -119,10 +119,10 @@ def upload_image():
     print(dishes)
     print(type(dishes))
     
-    # recommended_dishes = random.sample(dishes, 5)
+    recommended_dishes = random.sample(dishes, 5)
 
     # 显示结果页面
-    return render_template('results.html', dishes=dishes)
+    return render_template('results.html', dishes=dishes, recommended_dishes=recommended_dishes)
 
 if __name__ == '__main__':
     # 创建上传文件夹
