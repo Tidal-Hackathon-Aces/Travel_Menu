@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Buddy - Upload Menu Image</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e9ecef;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #343a40;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 1.25rem;
+            color: #6c757d;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .upload-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 20px auto;
+        }
+        button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        footer {
+            margin-top: auto;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9rem;
+            padding: 20px 0;
+            width: 100%;
+            background-color: #f8f9fa;
+        }
+        @media (max-width: 576px) {
+            .upload-container {
+                padding: 30px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            button[type="submit"] {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h1>Order Buddy</h1>
+        <h2>Upload your menu image</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" class="form-control-file">
+            <button type="submit" class="btn btn-success mt-3">Upload</button>
+        </form>
+    </div>
+    <footer>
+        &copy; 2024 Order Buddy. All rights reserved.
+    </footer>
+</body>
+</html>

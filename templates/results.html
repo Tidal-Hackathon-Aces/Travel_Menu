@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Analysis Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .table {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        thead {
+            background-color: #343a40;
+            color: white;
+        }
+        th {
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1.2rem;
+        }
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        a {
+            display: block;
+            width: 120px;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 1.1rem;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Menu Analysis Result</h1>
+        <form>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Dish Name</th>
+                        <th>Ingredients</th>
+                        <th>Price</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dish in dishes %}
+                    <tr>
+                        <td>{{ dish.name }}</td>
+                        <td>{{ dish.ingredients }}</td>
+                        <td>{{ dish.price }}</td>
+                        <td>{{ dish.notes }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+        <a href="/">Back</a>
+    </div>
+</body>
+</html>
