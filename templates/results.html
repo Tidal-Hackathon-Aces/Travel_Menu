@@ -16,6 +16,12 @@
             text-align: center;
             margin-bottom: 2rem;
         }
+        h2 {
+            font-size: 1.5rem;
+            color: #495057;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
         .table {
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -55,6 +61,14 @@
 <body>
     <div class="container mt-5">
         <h1>Menu Analysis Result</h1>
+        <!-- Recommendation section -->
+        <h2>Based on your previous selections, we recommend the following 5 dishes from this menu:</h2>
+        <ul class="list-group mb-4">
+            {% for recommendation in recommended_dishes %}
+            <li class="list-group-item">{{ recommendation }}</li>
+            {% endfor %}
+        </ul>
+        
         <form>
             <table class="table table-bordered table-hover">
                 <thead>
