@@ -9,23 +9,6 @@
         body {
             background-color: #e9ecef;
             font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: #343a40;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-weight: bold;
-        }
-        h2 {
-            font-size: 1.25rem;
-            color: #6c757d;
-            text-align: center;
-            margin-bottom: 2rem;
         }
         .upload-container {
             background-color: white;
@@ -33,28 +16,11 @@
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             max-width: 450px;
-            width: 100%;
-            text-align: center;
-        }
-        input[type="file"] {
-            display: block;
-            margin: 20px auto;
-        }
-        button[type="submit"] {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button[type="submit"]:hover {
-            background-color: #218838;
+            margin: auto; /* Center the container */
+            margin-top: 10%; /* Add top margin for spacing */
         }
         footer {
-            margin-top: auto;
+            margin-top: 20px;
             text-align: center;
             color: #6c757d;
             font-size: 0.9rem;
@@ -66,26 +32,27 @@
             .upload-container {
                 padding: 30px;
             }
-            h1 {
-                font-size: 2rem;
-            }
-            button[type="submit"] {
-                font-size: 1.1rem;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="upload-container">
-        <h1>Order Buddy</h1>
-        <h2>Upload your menu image</h2>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept="image/*" class="form-control-file">
-            <button type="submit" class="btn btn-success mt-3">Upload</button>
-        </form>
+    <div class="container">
+        <div class="upload-container mt-5">
+            <h1 class="display-4 text-center text-primary">Order Buddy</h1>
+            <h2 class="h5 text-center text-muted">Upload your menu image</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" name="file" accept="image/*" class="form-control-file">
+                </div>
+                <button type="submit" class="btn btn-success btn-block mt-3">Upload</button>
+            </form>
+        </div>
     </div>
     <footer>
         &copy; 2024 Order Buddy. All rights reserved.
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

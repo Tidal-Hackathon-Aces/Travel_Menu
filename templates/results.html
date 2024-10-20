@@ -16,6 +16,12 @@
             text-align: center;
             margin-bottom: 2rem;
         }
+        h2 {
+            font-size: 1.75rem;
+            color: #495057;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
         .table {
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -55,28 +61,53 @@
 <body>
     <div class="container mt-5">
         <h1>Menu Analysis Result</h1>
-        <form>
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>Dish Name</th>
-                        <th>Ingredients</th>
-                        <th>Price</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for dish in dishes %}
-                    <tr>
-                        <td>{{ dish.name }}</td>
-                        <td>{{ dish.ingredients }}</td>
-                        <td>{{ dish.price }}</td>
-                        <td>{{ dish.notes }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </form>
+
+        <!-- Recommended dishes section -->
+        <h2>Recommended Dishes</h2>
+        <table class="table table-bordered table-hover mb-5">
+            <thead>
+                <tr>
+                    <th>Dish Name</th>
+                    <th>Ingredients</th>
+                    <th>Price</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dish in recommended_dishes %}
+                <tr>
+                    <td>{{ dish.name }}</td>
+                    <td>{{ dish.ingredients }}</td>
+                    <td>{{ dish.price }}</td>
+                    <td>{{ dish.notes }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Full menu section -->
+        <h2>Full Menu</h2>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Dish Name</th>
+                    <th>Ingredients</th>
+                    <th>Price</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dish in dishes %}
+                <tr>
+                    <td>{{ dish.name }}</td>
+                    <td>{{ dish.ingredients }}</td>
+                    <td>{{ dish.price }}</td>
+                    <td>{{ dish.notes }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
         <a href="/">Back</a>
     </div>
 </body>
